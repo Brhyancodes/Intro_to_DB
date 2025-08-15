@@ -1,10 +1,10 @@
+#!/usr/bin/env python3
 """
 Script to create the alx_book_store database in MySQL server.
 Creates database if it doesn't exist, handles connection errors gracefully.
 """
 
 import mysql.connector
-from mysql.connector import Error
 
 
 def create_database():
@@ -21,7 +21,7 @@ def create_database():
         connection = mysql.connector.connect(
             host="localhost",
             user="root",  # MySQL username
-            password="WAKHALE@CODing2023",  # Password for the MySQL user
+            password="WAKHALE@CODing2023",  # MySQL password
             port=3306,  # Default MySQL port
         )
 
@@ -33,7 +33,7 @@ def create_database():
 
             print("Database 'alx_book_store' created successfully!")
 
-    except Error as e:
+    except mysql.connector.Error as e:
         print(f"Error connecting to MySQL database: {e}")
 
     finally:
